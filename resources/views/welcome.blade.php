@@ -2,6 +2,10 @@
 
 @section('seccion')
 
-<h1>Bienvenido Amigo</h1>
+<h1>Bienvenidos Amigos</h1>
 
+    <p>
+        Aprendí Github...creo 
+    </p>
+    
 @endsection
