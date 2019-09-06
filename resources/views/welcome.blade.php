@@ -2,6 +2,6 @@
 
 @section('seccion')
 
-<h1>Bienvenidos</h1>
+<h1>Bienvenido Amigo</h1>
 
 @endsection
