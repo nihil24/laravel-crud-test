@@ -1,6 +1,6 @@
-@extends('plantilla')
+@extends('layouts.app')
 
-@section('seccion')
+@section('content')
 
 <h1>Blog</h1>
 

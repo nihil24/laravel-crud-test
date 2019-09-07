@@ -1,6 +1,6 @@
-@extends('plantilla')
+@extends('layouts.app')
 
-@section('seccion')
+@section('content')
     
     <h1>Detalle del Empleado:</h1>
     <h4>ID Empleado: {{$empleados->id}} </h4>

@@ -1,11 +1,13 @@
-@extends('plantilla')
+@extends('layouts.app')
 
-@section('seccion')
+@section('content')
 
-<h1>Bienvenidos Amigos</h1>
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    <p>
-        Aprendí Github...creo 
-    </p>
-    
+<h1>Bienvenidos</h1>
+
+</head>
+
+</body>
+
 @endsection

@@ -1,6 +1,6 @@
-@extends('plantilla')
+@extends('layouts.app')
 
-@section('seccion')
+@section('content')
     <h1>Editar Empleado</h1>
     @if (session('mensaje'))
       <div class="alert alert-success">

@@ -29,5 +29,6 @@ Route::get('/fotos', 'PagesController@fotos')->name('foto');
 
 Route::get('/blog', 'PagesController@blog')->name('blog');
 
+Auth::routes();
 
-
+Route::get('/home', 'HomeController@index')->name('home');
