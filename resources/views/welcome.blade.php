@@ -1,13 +1,14 @@
+
 @extends('layouts.app')
 
 @section('content')
 
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<title>Laravel</title>
 
-<h1>Bienvenidos</h1>
+<div class="content">
+    <div class="title m-b-md">
+        Laravel
+    </div>
 
-</head>
-
-</body>
-
+    
 @endsection

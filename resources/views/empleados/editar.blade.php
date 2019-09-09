@@ -1,35 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Editar Empleado</h1>
-    @if (session('mensaje'))
-      <div class="alert alert-success">
-          {{ session('mensaje') }}
-      </div>
-  @endif
-  <form action="{{ route('empleados.update', $empleados->id) }}" method="POST">
-    @method('PUT')
-    @csrf
 
-    @error('nombre')
-        <div class="alert alert-danger">
-            El nombre es obligatorio
+  <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Editar Empleado</span>
+                        <a href="/empleados" class="btn btn-primary btn-sm">Volver a lista de Empleados...</a>
+                    </div>
+                    <div class="card-body">     
+                      @if ( session('mensaje') )
+                        <div class="alert alert-success">{{ session('mensaje') }}</div>
+                      @endif
+                      <form action="{{ route('empleados.update', $empleado->id) }}" method="POST">
+                            @method('PUT')
+                            @csrf
+                        
+                        
+                        
+                            <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" 
+                                value="{{ $empleado->nombre }}">
+                            <input type="text" name="cargo" placeholder="Cargo" class="form-control mb-2" 
+                                value="{{ $empleado->cargo }}">
+                            <button class="btn btn-warning btn-block" type="submit">Editar</button>
+                      </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    @enderror
-
-    @error('descripcion')
-        <div class="alert alert-danger">
-            La descripción es obligatoria
-        </div>
-    @enderror
-
-    <div class="forms-group row">
-        <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" 
-            value="{{ $empleados->nombre }}">
-        <input type="text" name="descripcion" placeholder="Descripcion" class="form-control mb-2" 
-            value="{{ $empleados->descripcion }}">
-    </div>   
-    
-    <button class="btn btn-secondary btn-lg" type="submit">Editar</button>
+    </div>
   </form>
 @endsection

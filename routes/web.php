@@ -11,24 +11,25 @@
 |
 */
 
-Route::get('/', 'PagesController@inicio')->name('inicio');
+Route::get('/', function(){
+    return view('welcome');
+});
 
-Route::get('/empleados', 'PagesController@empleados')->name('empleados');
+Route::get('/editar/{id}', 'EmpleadosController@edit');
 
-Route::post('/', 'PagesController@agregar')->name('empleados.agregar');
+Route::put('/editar/{id}', 'EmpleadosController@update');
 
-Route::get('/editar/{id}', 'PagesController@editar' )->name('empleados.editar');
+Route::get('/fotos', function(){
+    return view('fotos');
+});
 
-Route::put('/editar/{id}', 'PagesController@update' )->name('empleados.update');
+Route::get('/blog', function(){
+    return view('blog');
+});
 
-Route::delete('/eliminar/{id}', 'PagesController@eliminar')->name('empleados.eliminar');
-
-Route::get('/detalle{id}', 'PagesController@detalle')->name('empleados.detalle');
-
-Route::get('/fotos', 'PagesController@fotos')->name('foto');
-
-Route::get('/blog', 'PagesController@blog')->name('blog');
 
 Auth::routes();
+
+Route::resource('/empleados', 'EmpleadosController');
 
 Route::get('/home', 'HomeController@index')->name('home');
