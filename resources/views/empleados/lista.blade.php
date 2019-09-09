@@ -28,9 +28,14 @@
                                 <td>{{ $item->nombre }}</td>
                                 <td>{{ $item->cargo }}</td>
                                 <td>
-                                    <a href="{{route('empleados.update', $item)}}" class="btn btn-warning btn-sm">
+                                    <a href="{{route('empleados.edit', $item)}}" class="btn btn-warning btn-sm">
                                         Editar
                                     </a>
+                                    <form action="{{ route('empleados.destroy', $item) }}" class="d-inline" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form> 
                                 </td>
                             </tr>
                             @endforeach

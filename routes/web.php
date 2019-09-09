@@ -15,9 +15,12 @@ Route::get('/', function(){
     return view('welcome');
 });
 
-Route::get('/editar/{id}', 'EmpleadosController@edit');
+Route::get('/editar/{id}', 'EmpleadosController@edit')->name('empleados.editar');
 
 Route::put('/editar/{id}', 'EmpleadosController@update');
+
+Route::delete('/eliminar/{id}', 'Empleados@destroy');
+
 
 Route::get('/fotos', function(){
     return view('fotos');

@@ -43,6 +43,11 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'cargo' => 'required'
+        ]);
+
         $empleados = new Empleados();
         $empleados->nombre = $request->nombre;
         $empleados->cargo = $request->cargo;
@@ -71,9 +76,8 @@ class EmpleadosController extends Controller
      */
     public function edit($id)
     {
-        $usuarioEmail = auth()->user()->email;
-        $empleado = App\Empleados::findOrFail($id);
-
+        $empleados = Empleados::findOrFail($id);
+        
         return view('empleados.editar',compact('empleados'));  
     }
 
@@ -86,11 +90,15 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuarioEmail = auth()->user()->email;
+        $request->validate([
+            'nombre' => 'required',
+            'cargo' => 'required'
+        ]);
+
         $empleadoActualizado = Empleados::find($id);
         $empleadoActualizado->nombre = $request->nombre;
         $empleadoActualizado->cargo = $request->cargo;
-        $empleadoActualizado->usuario = auth()->user()->email;
+        
         $empleadoActualizado->save();
         return back()->with('mensaje', 'Empleado editado!');
     }
@@ -103,6 +111,9 @@ class EmpleadosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $empleadoEliminar = Empleados::findOrFail($id);
+        $empleadoEliminar->delete();
+
+        return back()->with('mensaje', 'Empleado Eliminado');
     }
 }

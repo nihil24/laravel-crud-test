@@ -14,16 +14,26 @@
                       @if ( session('mensaje') )
                         <div class="alert alert-success">{{ session('mensaje') }}</div>
                       @endif
-                      <form action="{{ route('empleados.update', $empleado->id) }}" method="POST">
+                      <form action="{{ route('empleados.update', $empleados->id) }}" method="POST">
                             @method('PUT')
                             @csrf
-                        
-                        
-                        
+                            
+                            @error('nombre')
+                              <div class="alert alert-danger">
+                                  El nombre es obligatorio
+                              </div>
+                            @enderror
+
+                            @error('cargo')
+                                <div class="alert alert-danger">
+                                    El cargo es obligatorio
+                                </div>
+                            @enderror
+
                             <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" 
-                                value="{{ $empleado->nombre }}">
+                                value="{{ $empleados->nombre }}">
                             <input type="text" name="cargo" placeholder="Cargo" class="form-control mb-2" 
-                                value="{{ $empleado->cargo }}">
+                                value="{{ $empleados->cargo }}">
                             <button class="btn btn-warning btn-block" type="submit">Editar</button>
                       </form>
                     </div>
